@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>iBootstrap</id>
+    <version>1.0.0</version>
+    <authors>Marius Cosareanu</authors>
+    <owners>Indaco Systems</owners>
+    <description>twitter bootstrap modified by Indaco Systems</description>
+    <projectUrl>https://github.com/IndacoSystems/iBootstrap/</projectUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <tags>jquery</tags>
+    <language>en-US</language>
+  </metadata>
+  <files>
+	<file src="css\bootstrap.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap.css" />
+	<file src="css\bootstrap-responsive.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap-responsive.css" />
+	<file src="img\glyphicons-halflings.png" target="Content\Scripts\Lib\Vendor\Bootstrap\img\glyphicons-halflings.png" />
+	<file src="img\glyphicons-halflings-white.png" target="Content\Scripts\Lib\Vendor\Bootstrap\img\glyphicons-halflings-white.png" />
+	<file src="js\bootstrap.js" target="Content\Scripts\Lib\Vendor\Bootstrap\js\bootstrap.js" />
+  </files>
+</package>
