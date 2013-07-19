@@ -17,5 +17,6 @@
 	<file src="img\glyphicons-halflings.png" target="Content\Scripts\Lib\Vendor\Bootstrap\img\glyphicons-halflings.png" />
 	<file src="img\glyphicons-halflings-white.png" target="Content\Scripts\Lib\Vendor\Bootstrap\img\glyphicons-halflings-white.png" />
 	<file src="js\bootstrap.js" target="Content\Scripts\Lib\Vendor\Bootstrap\js\bootstrap.js" />
+	<file src="js\jquery.validate.unobtrusive.bootstrap.js" target="Content\Scripts\Lib\Vendor\Bootstrap\js\jquery.validate.unobtrusive.bootstrap.js" />
   </files>
 </package>
