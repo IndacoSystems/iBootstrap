@@ -16,7 +16,7 @@
 	<file src="css\bootstrap.min.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap.min.css" />
 	<file src="css\bootstrap-glyphicons.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap-glyphicons.css" />
 	
-	<file src="fonts\glyphiconshalflings-regular.eot.eot" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphiconshalflings-regular.eot.eot" />
+	<file src="fonts\glyphiconshalflings-regular.eot" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphiconshalflings-regular.eot" />
 	<file src="fonts\glyphiconshalflings-regular.otf" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphiconshalflings-regular.otf" />
 	<file src="fonts\glyphiconshalflings-regular.svg" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphiconshalflings-regular.svg" />
 	<file src="fonts\glyphiconshalflings-regular.ttf" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphiconshalflings-regular.ttf" />
