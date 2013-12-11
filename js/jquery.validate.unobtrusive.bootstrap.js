@@ -6,7 +6,15 @@
 /*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, strict: false */
 /*global document: false, jQuery: false */
 
-(function ($) {
+
+(function (factory) {
+    if (typeof define === "function" && define.amd) {
+        define('bforms-validate-unobtrusive', ['jquery', 'bootstrap', 'bforms-validate'], factory);
+    } else {
+        factory(window.jQuery);
+    }
+}(function ($) {
+
     var $jQval = $.validator,
         adapters,
         data_validation = "unobtrusiveValidation";
@@ -43,16 +51,14 @@
             replace = $.parseJSON(container.attr("data-valmsg-replace") || "null") !== false;
 
         container.removeClass("field-validation-valid").addClass("field-validation-error");
-        container.closest(".control-group").addClass("error");
+        container.closest(".form-group").addClass("has-error");
         error.data("unobtrusiveContainer", container);
 
-        if (replace) {
-            container.empty();
-            error.removeClass("input-validation-error").appendTo(container);
+        if (container.data('toggle') === 'tooltip' && typeof container.data('bs.tooltip') === 'undefined') {
+            container.tooltip({ container: 'body' });
         }
-        else {
-            error.hide();
-        }
+
+        container.prop('title', error.text()).tooltip('fixTitle');
     }
 
     function onErrors(event, validator) {  // 'this' is the form element
@@ -62,7 +68,7 @@
         if (list && list.length && validator.errorList.length) {
             list.empty();
             container.addClass("validation-summary-errors").removeClass("validation-summary-valid");
-            
+
             $.each(validator.errorList, function () {
                 $("<li />").html(this.message).appendTo(list);
             });
@@ -75,7 +81,7 @@
 
         if (container) {
             container.addClass("field-validation-valid").removeClass("field-validation-error");
-            container.closest(".control-group").removeClass("error");
+            container.closest(".form-group").removeClass("has-error");
             error.removeData("unobtrusiveContainer");
 
             if (replace) {
@@ -96,7 +102,7 @@
             .removeData("unobtrusiveContainer")
             .find(">*")  // If we were using valmsg-replace, get the underlying error
                 .removeData("unobtrusiveContainer");
-        $form.find(".control-group").removeClass("error");
+        $form.find(".form-group").removeClass("has-error");
     }
 
     function validationInfo(form) {
@@ -209,6 +215,15 @@
                     info.attachValidation();
                 }
             });
+
+            //init tooltips
+            $('span[data-toggle=tooltip]').tooltip({ container: 'body' });
+
+            //transform number inputs into text input (chrome only)
+            var numberValidation = $('<input type="number"></input>').val('chrome').val() == 'chrome';
+            if (!numberValidation) {
+                $('input[type="number"]').prop('type', 'text');
+            }
         }
     };
 
@@ -310,6 +325,21 @@
     adapters.addSingleVal("accept", "exts").addSingleVal("regex", "pattern");
     adapters.addBool("creditcard").addBool("date").addBool("digits").addBool("email").addBool("number").addBool("url");
     adapters.addMinMax("length", "minlength", "maxlength", "rangelength").addMinMax("range", "min", "max", "range");
+
+    jQuery.validator.addMethod('mandatory', function (value, elem) {
+        var $elem = $(elem);
+        if ($elem.prop('type') == 'checkbox') {
+            if (!$elem.prop('checked')) {
+                return false;
+            }
+        }
+
+        return true;
+    });
+
+    $.validator.unobtrusive.adapters.addBool('mandatory');
+
+
     adapters.add("equalto", ["other"], function (options) {
         var prefix = getModelPrefix(options.element.name),
             other = options.params.other,
@@ -345,4 +375,6 @@
     $(function () {
         $jQval.unobtrusive.parse(document);
     });
-} (jQuery));
+
+}));
+
