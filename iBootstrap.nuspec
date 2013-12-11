@@ -13,8 +13,6 @@
   </metadata>
   <files>
 	<file src="css\bootstrap.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap.css" />
-	<file src="css\bootstrap.min.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap.min.css" />
-	<file src="css\bootstrap-glyphicons.css" target="Content\Scripts\Lib\Vendor\Bootstrap\css\bootstrap-glyphicons.css" />
 	
 	<file src="fonts\glyphicons-halflings-regular.eot" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphicons-halflings-regular.eot" />	
 	<file src="fonts\glyphicons-halflings-regular.svg" target="Content\Scripts\Lib\Vendor\Bootstrap\fonts\glyphicons-halflings-regular.svg" />	
